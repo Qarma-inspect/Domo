@@ -4,7 +4,7 @@ defmodule Domo.CodeEvaluation do
   @plan_collection_key __MODULE__.PlanCollection
 
   def in_mix_compile? do
-    Code.can_await_module_compilation?()
+    :ets.info(Mix.State) != :undefined
   end
 
   def in_mix_test? do
