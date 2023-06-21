@@ -22,6 +22,8 @@ TypeEnsurerFactory.maybe_collect_types_for_stdlib_structs(:in_memory)
 {:ok, module_filed_types, _dependencies_by_module, _ecto_assocs_by_module} = TypeEnsurerFactory.resolve_plan(plan, preconds, verbose?)
 TypeEnsurerFactory.strop_resolve_planner(:in_memory)
 
+File.mkdir_p(Mix.Project.manifest_path())
+
 types_path = Path.join(Mix.Project.manifest_path(), "resolved_stdlib_types.domo")
 ecto_assocs_path = Path.join(Mix.Project.manifest_path(), "resolved_stdlib_ecto_assocs.domo")
 code_path = Path.join(Mix.Project.manifest_path(), "/domo_generated_stdlib_ensurers_code")
